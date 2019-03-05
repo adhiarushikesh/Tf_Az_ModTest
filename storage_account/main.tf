@@ -6,21 +6,24 @@ variable "location" {
    default = "southeastasia"
    description = "Geographic location"
 }
-
 variable account_name {
   description = "Storage account name. Must be unique across Azure." 
 }
 
-variable "account_type" {
-  default = "Standard_LRS"
-  description = "Storage acount type (i.e.,  Standard_LRS, Standard_ZRS, Standard_GRS, Standard_RAGRS, Premium_LRS)"
+variable "account_tier" {
+  default = "Standard"
 }
+variable "account_rep_type" {
+  default = "LRS"
+}
+
 
 resource "azurerm_storage_account" "sa" {
     name = "${var.account_name}"
     resource_group_name = "${var.resource_group_name}"
-    location = "${var.location}"
-    account_type = "${var.account_type}"
+    account_tier             = "${var.account_tier}"
+    account_replication_type = "${var.account_rep_type}"
+    location                 = "${var.location}"
 }
 
 output "primary_blob_endpoint" {

@@ -1,5 +1,5 @@
 variable location { default = "southeastasia" }
-variable name { default = "sbterraform2" }
+variable name { default = "rg1" }
 
 variable network_address_space  { default = "10.0.0.0/16" }
 

@@ -90,17 +90,17 @@ variable storage_primary_blob_endpoint {
 # Images to use
 # See https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-windows/azuredeploy.json
 variable image_publisher {
-  default = "openlogic"
+  default = "Canonical"
   description = "OS Image publisher"
 }
 
 variable image_offer {
-  default = "CentOS"
+  default = "UbuntuServer"
   description = "OS Image offer"
 }
 
 variable image_sku {
-  default = "7.2"
+  default = "16.04.0-LTS"
   description = "OS Image sku"
 }
 

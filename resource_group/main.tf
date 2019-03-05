@@ -1,10 +1,10 @@
-variable "RG_name" { 
-   default = "RG1"
+variable "name" { 
+   #default = "RG1"
    description = "Name of the resource group"
 }
 
 variable "location" {
-  default = "southeastasia"
+  #default = "southeastasia"
   description = "Geographic location of the Resource Group"
 } 
 
@@ -13,7 +13,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-    name     = "${var.RG_name}"
+    name     = "${var.name}"
     location = "${var.location}"
 }
 
