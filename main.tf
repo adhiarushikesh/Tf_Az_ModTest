@@ -22,12 +22,12 @@ module "subnet" {
   address_prefixes = "${var.subnet_address_prefixes}"
 }
 
-module "storage_account" {
-  source = "./storage_account"
-  account_name = "${var.name}osdisks"
-  resource_group_name = "${module.resource_group.name}"
-  location = "${var.location}"
-}
+#module "storage_account" {
+#  source = "./storage_account"
+#  account_name = "${var.name}osdisks"
+#  resource_group_name = "${module.resource_group.name}"
+#  location = "${var.location}"
+#}
 
 module "public_ips_control" {
   name = "control"
@@ -37,6 +37,11 @@ module "public_ips_control" {
   count = "${var.control_count}"
 }
 
+module "load_balancer" {
+  source = "./load_balancer"
+  name = "${var.name}-lb"
+}
+  
 module "vms_control" {
   source = "./virtual_machines"
   name = "${var.name}-control"
