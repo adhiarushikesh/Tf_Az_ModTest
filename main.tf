@@ -1,7 +1,7 @@
 variable module_base { default = "github.com/adhiarushikesh/Tf_Az_ModTest/" }
 
 module "resource_group" {
-  source = "github.com/adhiarushikesh/Tf_Az_ModTest/tree/master/resource_group"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest//resource_group"
   name = "${var.name}"
   location = "${var.location}"
 }
