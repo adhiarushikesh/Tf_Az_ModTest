@@ -1,13 +1,13 @@
-variable module_base { default = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest" }
+variable module_base { default = "github.com/adhiarushikesh/Tf_Az_ModTest/" }
 
 module "resource_group" {
-  source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//resource_group"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/tree/master/resource_group"
   name = "${var.name}"
   location = "${var.location}"
 }
 
 module "virtual_network" {
-  #source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//virtual_network"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/virtual_network"
   name = "${var.name}"
   location = "${var.location}"
   resource_group_name = "${module.resource_group.name}"
@@ -15,7 +15,7 @@ module "virtual_network" {
 }
 
 module "subnet" {
-  #source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//subnet"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/subnet"
   name = "${var.name}"
   resource_group_name = "${module.resource_group.name}"
   virtual_network_name = "${module.virtual_network.name}"
@@ -23,21 +23,21 @@ module "subnet" {
 }
 
 module "storage_account" {
-  #source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//storage_account"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/storage_account"
   account_name = "${var.name}osdisks"
   resource_group_name = "${module.resource_group.name}"
 }
 
 module "public_ips_control" {
   name = "control"
-  #source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//public_ip"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/public_ip"
   location = "${var.location}"
   resource_group_name = "${module.resource_group.name}"
   count = "${var.control_count}"
 }
 
 module "vms_control" {
-  #source = "github.com/adhiarushikesh/TerraformAzlab1/tree/master/AzModTest//virtual_machines"
+  source = "github.com/adhiarushikesh/Tf_Az_ModTest/virtual_machines"
   name = "${var.name}-control"
   count = "${var.control_count}"
   vm_name = "control"
