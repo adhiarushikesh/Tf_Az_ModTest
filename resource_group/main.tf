@@ -1,15 +1,19 @@
-variable name { 
+variable "RG_name" { 
    default = "RG1"
    description = "Name of the resource group"
 }
 
-variable location {
+variable "location" {
   default = "southeastasia"
   description = "Geographic location of the Resource Group"
 } 
 
+provider "azurerm" {
+    version = "=1.20.0"
+}
+
 resource "azurerm_resource_group" "rg" {
-    name     = "${var.name}"
+    name     = "${var.RG_name}"
     location = "${var.location}"
 }
 
