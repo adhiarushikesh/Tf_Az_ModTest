@@ -10,6 +10,6 @@ variable subnet_address_prefixes {
 variable control_count { default = 3 }
 variable datacenter { default = "azure" }
 variable admin_username { default = "tadmin" }
-variable admin_password { default = "PL@net09" }
+variable admin_password { default = "P@ssw0rd" }
 
 
